@@ -58,12 +58,39 @@
 
 
 
-        <div class="camera" >
+       
           <video autoplay id="webcam"></video>
-          <br><br>
-          <button onclick="webcam('play')">Start</button>
-          <button onclick="webcam('pause')"> click</button>
-        </div>
+<br><br>
+<div class="container">
+  <button onclick="webcam('play')">Start</button>
+<button onclick="webcam('pause')">CLICK</button>
+
+
+</div>
+
+
+ <script>
+
+var video = document.querySelector('#webcam');
+
+function webcam(btn) {
+   if(btn == 'pause') {
+     video.pause();
+   } else {
+     video.play();
+   }
+}
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({video: true})
+    .then(function(stream) {
+    video.srcObject = stream;
+  })
+    .catch(function(e) {
+    console.log(e);
+  });
+}
+ </script>
           <main>
             <h2 class="digi">  SOLUTIONS :</h2>
             <section class="app-features"> 
